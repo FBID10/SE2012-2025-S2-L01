@@ -21,7 +21,8 @@ public class Marks{
 			System.out.println("3. Subject Average");
             		System.out.println("4. Average Student");
 			System.out.println("5. Total Marks of a Student");
-            		System.out.println("6. Exit");
+			System.out.println("6. Grades");
+            		System.out.println("7. Exit");
             		System.out.print("Enter your choice: ");
 			int Menu=sc.nextInt();
 		switch(Menu){
@@ -45,11 +46,13 @@ public class Marks{
 			case 4:
 			obj.AverageOfStudent(StudentSubject,sc,n);
 			break;
-			
 			case 5:
 			obj.TotalMarksStudent(StudentSubject,sc,n);
 			break;
 			case 6:
+			obj.Grade(StudentSubject,sc,n);
+			break;
+			case 7:
 			System.out.println("Exiting");
 			return;
 			
@@ -144,5 +147,30 @@ public class Marks{
 		
 						
 	}
+	private void Grade(int StudentSubject[][], Scanner sc, int n) {
+    	System.out.println("Student ID | Subject 1 | Subject 2 | Subject 3");
+    	System.out.println("---------------------------------------------");
+
+    	for (int i = 0; i < n; i++) {
+        	System.out.printf("     %d     |", i+1);
+        	for (int j = 0; j < 3; j++) {
+            		int score = StudentSubject[i][j];
+            		if (score >= 90) {
+                	System.out.print("    A     |");
+            		} else if (score >= 80) {
+                	System.out.print("    B     |");
+            		} else if (score >= 70) {
+                	System.out.print("    C     |");
+            		} else if (score >= 60) {
+                	System.out.print("    D     |");
+            		} else {
+                	System.out.print("   Fail   |");
+            		}
+        	}
+        	System.out.println();
+    	}
+}
+
+
 }
 		
